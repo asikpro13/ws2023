@@ -12,6 +12,7 @@ dependencies:
   expandable_page_view: ^1.0.17
   flutter_native_splash: ^2.1.19
   flutter_launcher_icons: any
+  shared_preferences: any
   flutter:
     sdk: flutter
 

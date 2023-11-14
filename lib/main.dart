@@ -2,6 +2,8 @@ import 'package:expandable_page_view/expandable_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ws2023/login.dart';
+import 'package:ws2023/sign.dart';
 
 import 'globals.dart';
 
@@ -31,6 +33,12 @@ class _OnboardingState extends State<Onboarding> {
   // Onboarding - Начальный экран приложения, создан 10 ноября в 9 56, Автор - Мазурек Вадим
   var pageController = PageController();
   var indexPage = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    initPrefs();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -188,7 +196,9 @@ class _OnboardingState extends State<Onboarding> {
                             width: MediaQuery.of(context).size.width,
                             height: 50,
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => SignUp()));
+                              },
                               style: ElevatedButton.styleFrom(backgroundColor: const Color(0xff0560FA)),
                               child: Text(
                                 'Sign Up',
@@ -215,11 +225,16 @@ class _OnboardingState extends State<Onboarding> {
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
-                                Text(
-                                  'Sign in',
-                                  style: GoogleFonts.roboto(
-                                    color: Color(0xff0560FA),
-                                    fontWeight: FontWeight.w500,
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const Login()));
+                                  },
+                                  child: Text(
+                                    'Sign in',
+                                    style: GoogleFonts.roboto(
+                                      color: Color(0xff0560FA),
+                                      fontWeight: FontWeight.w500,
+                                    ),
                                   ),
                                 )
                               ],
