@@ -45,8 +45,10 @@ class _LoginState extends State<Login> {
         prefs.setString('id', jsonDecode(resp.body)['data']['id'].toString());
         prefs.setString('email', jsonDecode(resp.body)['data']['email']);
         prefs.setString('name', jsonDecode(resp.body)['data']['name']);
+        prefs.setString('avatar', jsonDecode(resp.body)['data']['avatar']);
         prefs.setString('balance', jsonDecode(resp.body)['data']['balance'].toString());
         prefs.setString('password', passwordController.text);
+        selectedPage = 0;
         Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Home()));
       }
     }

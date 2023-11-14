@@ -60,6 +60,7 @@ class _ProfileState extends State<Profile> {
                       Container(
                         width: 50,
                         height: 50,
+                        child: prefs.getString('avatar') != null ? Image.network(prefs.getString('avatar')) : SizedBox(),
                         decoration: BoxDecoration(
                             border: Border.all(color: Color(0xffD7D7D7), width: 2), borderRadius: BorderRadius.all(Radius.circular(40))),
                       ),
@@ -108,6 +109,10 @@ class _ProfileState extends State<Profile> {
                   ),
                   SizedBox(
                     height: 30,
+                  ),
+                  Image.asset(
+                    'assets/gp1.png',
+                    width: MediaQuery.of(context).size.width,
                   ),
                   GestureDetector(
                       onTap: () {
